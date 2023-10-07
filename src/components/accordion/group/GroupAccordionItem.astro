@@ -1,0 +1,14 @@
+---
+import { AccordionProps } from "@components/accordion/props";
+import { twMerge } from "tailwind-merge";
+
+type Props = AccordionProps;
+const { class: className } = Astro.props;
+---
+
+<div
+  x-data="{ id: $id('accordion-item') }"
+  class={twMerge("flex flex-col w-full", className)}
+>
+  <slot />
+</div>

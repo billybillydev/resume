@@ -1,0 +1,20 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { DropdownProps } from "@components/dropdown/props";
+
+type Props = DropdownProps;
+const {
+  class: className,
+  position = "bottom",
+  duration = 300,
+  ...restProps
+} = Astro.props;
+---
+
+<div
+  x-data={`dropdown("${position}", ${duration})`}
+  class={twMerge("relative", className)}
+  {...restProps}
+>
+  <slot />
+</div>

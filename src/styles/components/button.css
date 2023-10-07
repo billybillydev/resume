@@ -1,0 +1,94 @@
+/* Button layout style */
+.btn {
+  @apply transition-colors duration-150 box-border flex items-center justify-center text-white outline-none bg-slate-500 hover:bg-slate-700 disabled:bg-slate-100 disabled:hover:bg-slate-100 disabled:text-slate-500 disabled:opacity-75 disabled:cursor-not-allowed;
+}
+
+.btn-outlined {
+  @apply transition-colors duration-150 box-border flex items-center justify-center text-slate-800 hover:bg-slate-300 hover:text-slate-800 disabled:bg-slate-100 disabled:hover:bg-slate-100 disabled:text-slate-500 disabled:opacity-75 disabled:cursor-not-allowed;
+}
+
+.btn-inversed {
+  @apply transition-colors duration-150 box-border flex items-center justify-center bg-white border border-slate-500 text-slate-500 hover:bg-slate-700 hover:text-slate-200 disabled:bg-slate-100 disabled:hover:bg-slate-100 disabled:text-slate-500 disabled:opacity-75 disabled:cursor-not-allowed;
+}
+
+/* Primary variants */
+.btn-primary {
+  @apply text-white bg-primary-500 hover:bg-primary-700;
+}
+
+.btn-primary-outlined {
+  @apply text-primary-700 bg-primary-200 hover:bg-primary-300;
+}
+
+.btn-primary-inversed {
+  @apply text-primary-500 bg-white border border-primary-500 hover:text-white hover:bg-primary-500;
+}
+
+/* Secondary variants */
+.btn-secondary {
+  @apply text-white bg-secondary hover:bg-transparent hover:text-secondary border border-transparent hover:border-secondary;
+}
+
+.btn-secondary-outlined {
+  @apply text-secondary bg-slate-200 hover:bg-slate-300;
+}
+
+.btn-secondary-inversed {
+  @apply text-secondary bg-white border border-secondary hover:text-white hover:bg-secondary;
+}
+
+/* Success variants */
+.btn-success {
+  @apply text-white bg-success-500 hover:bg-success-700;
+}
+
+.btn-success-outlined {
+  @apply text-success-700 bg-success-200 hover:bg-success-300;
+}
+
+.btn-success-inversed {
+  @apply text-success-500 bg-white border border-success-500 hover:text-white hover:bg-success-500;
+}
+
+/* Danger variants */
+.btn-danger {
+  @apply text-white bg-danger-500 hover:bg-danger-700;
+}
+
+.btn-danger-outlined {
+  @apply text-danger-700 bg-danger-200 hover:bg-danger-300;
+}
+
+.btn-danger-inversed {
+  @apply text-danger-500 bg-white border border-danger-500 hover:text-white hover:bg-danger-500;
+}
+
+/* Info variants */
+.btn-info {
+  @apply text-white bg-info-500 hover:bg-info-700;
+}
+
+.btn-info-outlined {
+  @apply text-info-700 bg-info-200 hover:bg-info-300;
+}
+
+.btn-info-inversed {
+  @apply text-info-500 bg-white border border-info-500 hover:text-white hover:bg-info-500;
+}
+
+/* Warning variants */
+.btn-warning {
+  @apply text-white bg-warning-500 hover:bg-warning-700;
+}
+
+.btn-warning-outlined {
+  @apply text-warning-700 bg-warning-200 hover:bg-warning-300;
+}
+
+.btn-warning-inversed {
+  @apply text-warning-500 bg-white border border-warning-500 hover:text-white hover:bg-warning-500;
+}
+
+.btn-circle {
+  @apply min-w-[4rem] max-w-lg rounded-full flex items-center justify-center p-0 before:pt-[100%];
+}

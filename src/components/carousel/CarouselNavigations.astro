@@ -1,0 +1,65 @@
+---
+import Button from "@components/button/Button.astro";
+import type { CarouselNavigationsProps } from "@components/carousel/props";
+import { CarouselDirectionType } from "@components/carousel/types";
+import ArrowLeftIcon from "@components/icon/ArrowLeftIcon.astro";
+import ArrowRightIcon from "@components/icon/ArrowRightIcon.astro";
+import ArrowUpIcon from "@components/icon/ArrowUpIcon.astro";
+import ArrowDownIcon from "@components/icon/ArrowDownIcon.astro";
+import { HTMLTag } from "astro/types";
+
+type Props = CarouselNavigationsProps;
+const { direction } = Astro.props;
+
+const navigationButtonDirectionClassMap = new Map<
+  CarouselDirectionType,
+  { previous: string; next: string }
+>([
+  [
+    "horizontal",
+    {
+      previous: "top-1/2 -translate-y-1/2 left-4",
+      next: "top-1/2 -translate-y-1/2 right-4",
+    },
+  ],
+  [
+    "vertical",
+    {
+      previous: "left-1/2 -translate-x-1/2 top-4 h-full",
+      next: "left-1/2 -translate-x-1/2 bottom-4 h-full",
+    },
+  ],
+]);
+
+const navigationIconDirectionClassMap = new Map<
+  CarouselDirectionType,
+  { previous: HTMLTag; next: HTMLTag }
+>([
+  ["horizontal", { previous: ArrowLeftIcon, next: ArrowRightIcon }],
+  ["vertical", { previous: ArrowUpIcon, next: ArrowDownIcon }],
+]);
+const PreviousNavigationIcon =
+  navigationIconDirectionClassMap.get(direction).previous;
+const NextNavigationIcon = navigationIconDirectionClassMap.get(direction).next;
+---
+
+<slot>
+  <Button
+    x-bind:disabled="!loop && areFirstSlidesToShow()"
+    x-on:click="previous()"
+    borderRadius="circle"
+    class={`absolute ${
+      navigationButtonDirectionClassMap.get(direction).previous
+    }`}
+  >
+    <PreviousNavigationIcon size={6} fill="none" stroke="currentColor" />
+  </Button>
+  <Button
+    x-bind:disabled="!loop && areLastSlidesToShow()"
+    x-on:click="next()"
+    borderRadius="circle"
+    class={`absolute ${navigationButtonDirectionClassMap.get(direction).next}`}
+  >
+    <NextNavigationIcon size={6} fill="none" stroke="currentColor" />
+  </Button>
+</slot>

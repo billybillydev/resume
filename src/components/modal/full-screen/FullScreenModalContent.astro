@@ -1,0 +1,36 @@
+---
+import CrossIcon from "@components/icon/CrossIcon.astro";
+type Props = {
+  selector?: string;
+};
+
+const { selector = "body" } = Astro.props;
+---
+
+<template x-teleport={selector}>
+  <div
+    x-bind="shower"
+    x-transition:enter="transition ease-out duration-250"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-250"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="flex fixed inset-0 z-[99] w-screen h-screen bg-white"
+  >
+    <button
+      x-bind="closerClick"
+      aria-label="Close"
+      class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-3 mr-3 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+    >
+      <CrossIcon
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        size={5}
+      />
+      <span>Close</span>
+    </button>
+    <slot />
+  </div>
+</template>

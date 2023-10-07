@@ -1,0 +1,84 @@
+---
+import { twMerge } from "tailwind-merge";
+import Button from "@components/button/Button.astro";
+import PrimaryButton from "@components/button/PrimaryButton.astro";
+import SecondaryButton from "@components/button/SecondaryButton.astro";
+import SuccessButton from "@components/button/SuccessButton.astro";
+import DangerButton from "@components/button/DangerButton.astro";
+import InfoButton from "@components/button/InfoButton.astro";
+import WarningButton from "@components/button/WarningButton.astro";
+import type { CardBodyProps } from "@components/card/props";
+
+type Props = CardBodyProps;
+const { class: className, title, text, texts, controls } = Astro.props;
+---
+
+<div
+  class={twMerge("bg-white flex flex-col gap-y-4 rounded-lg p-4", className)}
+  id="card-body"
+>
+  <slot name="title">
+    {
+      title ? (
+        <h4 class="text-xl font-bold leading-none tracking-tight text-neutral-900">
+          {title}
+        </h4>
+      ) : null
+    }
+  </slot>
+  <slot name="text">
+    <div id="card-body-text">
+      {
+        texts?.length ? (
+          texts.map((line) => <p class="text-neutral-500">{line}</p>)
+        ) : text ? (
+          <p class="text-neutral-500">{text}</p>
+        ) : null
+      }
+    </div>
+  </slot>
+  <slot name="controls">
+    {
+      controls ? (
+        <div
+          id="card-controls"
+          class="flex flex-wrap gap-2 items-center justify-end w-full"
+        >
+          {controls.map((control) => {
+            if (control.component) {
+              const ButtonControl = control.component;
+              return <ButtonControl />;
+            }
+            if (control.html) {
+              return <div set:html={control.html} />;
+            }
+            if (control.variant) {
+              const buttonControlMap = new Map([
+                ["primary", PrimaryButton],
+                ["secondary", SecondaryButton],
+                ["success", SuccessButton],
+                ["danger", DangerButton],
+                ["info", InfoButton],
+                ["warning", WarningButton],
+              ]);
+              const ButtonControl = buttonControlMap.get(control.variant);
+              return (
+                <ButtonControl
+                  text={control.label}
+                  x-on:click={control.action}
+                />
+              );
+            }
+            return (
+              <Button
+                variant="inversed"
+                text={control.label}
+                x-on:click={control.action}
+              />
+            );
+          })}
+        </div>
+      ) : null
+    }
+  </slot>
+</div>

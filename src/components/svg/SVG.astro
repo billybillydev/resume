@@ -1,0 +1,21 @@
+---
+import type { SVGProps } from "@components/svg/props";
+
+type Props = SVGProps;
+const {
+  class: className,
+  fill = "none",
+  stroke = "currentColor",
+  ...restProps
+} = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  {fill}
+  {stroke}
+  class={className}
+  {...restProps}
+>
+  <slot />
+</svg>

@@ -1,0 +1,12 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { TabBodyProps } from "@components/tabs/props";
+
+type Props = TabBodyProps;
+
+const { class: className } = Astro.props;
+---
+
+<div class={twMerge("relative w-full content", className)}>
+  <slot />
+</div>

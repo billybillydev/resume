@@ -1,0 +1,33 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { TableBodyProps } from "@components/table/props";
+
+type Props = TableBodyProps;
+const { class: className, ...restProps } = Astro.props;
+---
+
+<tbody class={twMerge("divide-y divide-neutral-200", className)}>
+  <template x-for="item in sortItemsByKey()">
+    <tr class="text-neutral-800">
+      <template x-for="column in columns">
+        <template x-if="item[column.key]">
+          <td class="px-5 py-4 text-sm whitespace-nowrap">
+            <template x-if="item[column.key].text">
+              <span x-text="item[column.key].text"></span>
+            </template>
+            <template x-if="item[column.key].html">
+              <div x-html="item[column.key].html"></div>
+            </template>
+          </td>
+        </template>
+      </template>
+    </tr>
+  </template>
+  <template x-if="!items.length">
+    <tr class="text-neutral-800 shrink">
+      <td colspan="100%" class="text-center p-4">
+        <p>No data to display</p>
+      </td>
+    </tr>
+  </template>
+</tbody>

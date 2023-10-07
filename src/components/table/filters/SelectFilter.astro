@@ -1,0 +1,30 @@
+---
+import { twMerge } from "tailwind-merge";
+import Select from "@components/select/Select.astro";
+import type { TableSelectFilterProps } from "@components/table/props";
+
+type Props = TableSelectFilterProps;
+const {
+  key,
+  placeholder = "Select item",
+  id = "select-filter",
+  name = "select-filter",
+  items,
+  class: className,
+} = Astro.props;
+---
+
+<div class="w-full min-w-xs mx-auto">
+  <Select
+    @select={`filterByOperatorType("select", event.detail.operator, "${key}", event.detail.value)`}
+    class={twMerge(
+      "border rounded-md shadow-sm border-neutral-200/70",
+      className
+    )}
+    {placeholder}
+    {id}
+    {name}
+    {items}
+    class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+  />
+</div>

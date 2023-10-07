@@ -1,0 +1,21 @@
+---
+import type { BadgeProps } from "./props";
+import Badge from "./Badge.astro";
+import { VariantColorType } from "@common/types";
+
+type Props = BadgeProps;
+const { class: className, variant = "solid", ...restProps } = Astro.props;
+
+const variantClassMap = new Map<VariantColorType, string>([
+  ["solid", "bg-secondary text-white"],
+  ["outlined", "bg-slate-400 text-secondary"],
+  ["inversed", "border border-secondary text-secondary"],
+]);
+---
+
+<Badge
+  class={[variantClassMap.get(variant), className].join(" ")}
+  {...restProps}
+>
+  <slot />
+</Badge>

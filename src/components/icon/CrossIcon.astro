@@ -1,0 +1,14 @@
+---
+import { tailwindThemeConfig } from "@config/design";
+import SVG from "@components/svg/SVG.astro";
+import type { IconProps } from "@components/icon/props";
+
+type Props = IconProps;
+
+const { size = 4, ...restProps} = Astro.props;
+---
+
+<SVG viewBox="0 0 24 24" style={`width: ${tailwindThemeConfig.width[size]}; height: ${tailwindThemeConfig.height[size]};`} {...restProps}>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+</SVG>
+

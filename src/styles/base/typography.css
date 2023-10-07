@@ -1,0 +1,45 @@
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h4 {
+  @apply text-base font-medium;
+}
+
+h5 {
+  @apply text-sm;
+}
+
+h6 {
+  @apply text-xs;
+}
+
+pre.astro-code {
+  margin: 0.5rem;
+}
+
+code {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.component-preview {
+  @apply relative flex flex-wrap gap-4 justify-center items-center border border-slate-200 rounded-lg m-2 resize p-8;
+  background-image: url('/icons/grid_dot.svg');
+  background-repeat: repeat;
+  background-size: 1.5rem;
+  justify-items: baseline;
+}
+
+.astro-code {
+  padding: 1rem;
+  border-radius: 0.44rem;
+}

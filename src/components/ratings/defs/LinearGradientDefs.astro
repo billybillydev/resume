@@ -1,0 +1,23 @@
+---
+import type { LinearGradientDefsProps } from "@components/ratings/props";
+
+type Props = LinearGradientDefsProps;
+const { applyDefsId, color, percentageValue } = Astro.props;
+---
+
+<defs>
+  <linearGradient id={applyDefsId}>
+    {percentageValue === 100 && <stop offset="0%" stop-color={color.fill} />}
+    {percentageValue === 0 && <stop offset="0%" stop-color={color.empty} />}
+    {
+      ![0, 100].includes(percentageValue) && (
+        <Fragment>
+          <stop offset="0%" stop-color={color.fill} />
+          <stop offset={`${percentageValue}%`} stop-color={color.fill} />
+          <stop offset={`${percentageValue}%`} stop-color={color.empty} />
+          <stop offset="100%" stop-color={color.empty} stop-opacity="1" />
+        </Fragment>
+      )
+    }
+  </linearGradient>
+</defs>

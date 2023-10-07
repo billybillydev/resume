@@ -1,0 +1,21 @@
+---
+import Button from "@components/button/Button.astro";
+import { ModalTriggerProps } from "@components/modal/props";
+
+type Props = ModalTriggerProps;
+const { class: className, as: Component, ...restProps } = Astro.props;
+---
+
+<div class="inline-flex items-center justify-center">
+  {
+    Component ? (
+      <Component x-bind="trigger" {...restProps}>
+        <slot />
+      </Component>
+    ) : (
+      <Button x-bind="trigger" class={className}>
+        <slot />
+      </Button>
+    )
+  }
+</div>

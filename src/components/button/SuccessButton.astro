@@ -1,0 +1,18 @@
+---
+import type { ButtonProps } from "./props";
+import Button from "./Button.astro";
+import { VariantColorType } from "@common/types";
+
+type Props = ButtonProps;
+const { class: className, variant = "solid", ...restProps } = Astro.props;
+const variantClassMap = new Map<VariantColorType, string>([
+  ['solid', 'btn-success'],
+  ['outlined', 'btn-success-outlined'],
+  ['inversed', 'btn-success-inversed'],
+])
+---
+
+<Button class={[variantClassMap.get(variant), className].join(" ")} {...restProps}>
+  <slot />
+</Button>
+

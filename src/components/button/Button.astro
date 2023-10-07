@@ -1,0 +1,47 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { ButtonProps } from "./props";
+import { BorderRadiusType, VariantColorType } from "@common/types";
+
+type Props = ButtonProps;
+
+const {
+  class: className,
+  size,
+  text = "",
+  variant = "solid",
+  borderRadius = "rounded",
+  ...restProps
+} = Astro.props;
+
+const variantColorMap = new Map<VariantColorType, string>([
+  ["solid", "btn"],
+  ["outlined", "btn-outlined"],
+  ["inversed", "btn-inversed"],
+]);
+const borderRadiusMap = new Map<BorderRadiusType, string>([
+  ["square", "rounded-none"],
+  ["rounded", "rounded"],
+  ["arc", "rounded-xl"],
+  ["pill", "rounded-full"],
+  ["curve", "rounded-lg"],
+  ["circle", "btn-circle"],
+]);
+---
+
+<button
+  class:list={[
+    twMerge(
+      [
+        variantColorMap.get(variant),
+        size ?? "px-2 py-1",
+        borderRadiusMap.get(borderRadius),
+      ].join(" "),
+      className,
+      borderRadius === "circle" ? "p-0" : ""
+    ),
+  ]}
+  {...restProps}
+>
+  {text ? <span>{text}</span> : <slot />}
+</button>

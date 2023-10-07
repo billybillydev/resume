@@ -1,0 +1,26 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { ProgressProps } from "@components/progress/props";
+
+type Props = Omit<ProgressProps, "themeColor">;
+const {
+  class: className,
+  value = 100,
+  interval,
+  duration = 1000,
+  noAnimation = false,
+  ...restProps
+} = Astro.props;
+---
+
+<div
+  x-data={`progress(${value}, ${interval ?? duration / value}, ${noAnimation})`}
+  class={twMerge("relative", className)}
+  {...restProps}
+>
+  <span
+    :style="`transition-duration: ${interval}ms;`"
+    class="ease-linear"
+    x-text="progress"
+    x-cloak></span>
+</div>

@@ -1,0 +1,45 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { CardProps } from "@components/card/props";
+import type { CardPositionType } from "@components/card/types";
+import CardImage from "@components/card/CardImage.astro";
+import CardBody from "@components/card/CardBody.astro";
+
+type Props = CardProps;
+const {
+  class: className,
+  position = "vertical",
+  image,
+  title,
+  text,
+  texts,
+  controls,
+} = Astro.props;
+const positionClassMap = new Map<CardPositionType, string>([
+  ["vertical", "flex-col"],
+  ["horizontal", "flex-row"],
+]);
+---
+
+<div
+  class:list={[
+    twMerge(
+      "flex rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-full",
+      className
+    ),
+    positionClassMap.get(position),
+  ]}
+>
+  <slot>
+    {
+      image ? (
+        <CardImage
+          class={position === "vertical" ? "w-full h-auto" : "w-auto h-full"}
+          src={image.src}
+          alt={image.alt}
+        />
+      ) : null
+    }
+    <CardBody {title} {text} {texts} {controls} />
+  </slot>
+</div>

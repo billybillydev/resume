@@ -1,0 +1,60 @@
+---
+import type { DropdownContentProps } from "@components/dropdown/props";
+import type { PositionType } from "@common/types";
+
+type Props = DropdownContentProps;
+const { class: className, position = "bottom", ...restProps } = Astro.props;
+
+const transitionClassMap = new Map<
+  PositionType,
+  {
+    enter: { start: string; end: string };
+    leave: { start: string; end: string };
+  }
+>([
+  [
+    "top",
+    {
+      enter: { start: "translate-y-2", end: "translate-y-0" },
+      leave: { start: "translate-y-0", end: "translate-y-2" },
+    },
+  ],
+  [
+    "bottom",
+    {
+      enter: {
+        start: "-translate-y-2",
+        end: "translate-y-0",
+      },
+      leave: {
+        start: "translate-y-0",
+        end: "-translate-y-2",
+      },
+    },
+  ],
+  [
+    "left",
+    {
+      enter: { start: "-translate-x-2", end: "translate-x-0" },
+      leave: { start: "translate-x-0", end: "-translate-x-2" },
+    },
+  ],
+  [
+    "right",
+    {
+      enter: { start: "-translate-x-2", end: "translate-x-0" },
+      leave: { start: "translate-x-0", end: "-translate-x-2" },
+    },
+  ],
+]);
+---
+
+<div
+  x-show="visible"
+  x-bind="closer"
+  class:list={["absolute z-50", className]}
+  x-ref="content"
+  x-cloak
+>
+  <slot />
+</div>

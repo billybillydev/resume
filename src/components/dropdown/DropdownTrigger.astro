@@ -1,0 +1,10 @@
+---
+import type { DropdownTriggerProps } from "@components/dropdown/props";
+
+type Props = DropdownTriggerProps;
+const { class: className, ...restProps } = Astro.props;
+---
+
+<button x-bind="trigger" x-ref="trigger" class={className} {...restProps}>
+  <slot />
+</button>

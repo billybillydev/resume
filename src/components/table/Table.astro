@@ -1,0 +1,27 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { TableProps } from "@components/table/props";
+import TableHead from "@components/table/TableHead.astro";
+import TableBody from "@components/table/TableBody.astro";
+
+type Props = TableProps;
+const { class: className, columns, items, theadClass, tbodyClass, ...restProps } = Astro.props;
+---
+
+<div class={twMerge("divide-y divide-neutral-200", className)}>
+  <table
+    x-data={`table(${JSON.stringify(columns)}, ${JSON.stringify(items)})`}
+    class="min-w-full"
+  >
+    {
+      Astro.slots.has('default') ?
+        <slot /> :
+        (
+          <Fragment>
+            {columns ? <TableHead {columns} class={theadClass} /> : <slot name="thead" />}
+            {items ? <TableBody class={tbodyClass} /> : <slot name="tbody" />}
+          </Fragment>
+        )
+    }
+  </table>
+</div>

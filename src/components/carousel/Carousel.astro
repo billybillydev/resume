@@ -1,0 +1,67 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { CarouselProps } from "@components/carousel/props";
+
+import CarouselNavigations from "@components/carousel/CarouselNavigations.astro";
+import CarouselIndicators from "@components/carousel/CarouselIndicators.astro";
+import Image from "@components/image/Image.astro";
+import { tailwindThemeConfig } from "@config/design";
+import { DirectionType } from "@common/types";
+
+type Props = CarouselProps;
+const {
+  slides,
+  class: className,
+  loop = false,
+  indicator = false,
+  direction = "horizontal",
+  hideNavigations = false,
+  slidesToShow = 1,
+  ...restProps
+} = Astro.props;
+
+const directionClassMap = new Map<DirectionType, string>([
+  ["horizontal", "flex items-center"],
+  ["vertical", slidesToShow > 1 ? "flex flex-col items-center" : "grid grid-flow-dense"],
+]);
+const slideDirectionClassMap = new Map<DirectionType, string>([
+  ["horizontal", slidesToShow > 1 ? "" : "min-w-full h-full"],
+  ["vertical", slidesToShow > 1 ? "" : "min-w-full h-[inherit]"],
+]);
+const slideDirectionDimensionStyle = direction === "horizontal"
+  ? `width: ${tailwindThemeConfig.width[`1/${slidesToShow}`]}; height: 100%;`
+  : `width: 100%; height: ${tailwindThemeConfig.height[`1/${slidesToShow}`]}`
+---
+
+<div
+  x-data={`carousel({ loop: ${loop}, slidesToShow: ${slidesToShow} })`}
+  class={twMerge("relative flex", className)}
+  {...restProps}
+>
+  <div class="relative flex grow h-full">
+    <div
+      x-ref="carousel"
+      class={`${directionClassMap.get(direction)} overflow-hidden`}
+    >
+        <slot>
+          {slides?.map((slide) => (
+            <Image class:list={[slideDirectionClassMap.get(direction)]} style={slideDirectionDimensionStyle} src={slide.src} alt={slide.alt} />
+          ))}
+        </slot>
+    </div>
+    {
+      !hideNavigations ? (
+        <Fragment>
+          { Astro.slots.has("navigations") ? <slot name="navigations" /> : <CarouselNavigations {direction} /> }
+        </Fragment>
+      ) : null
+    }
+  </div>
+  {
+    indicator === true || typeof indicator !== "boolean" ? (
+      <Fragment>
+        { Astro.slots.has("indicators") ? <slot name="indicators" /> : <CarouselIndicators {indicator} /> }
+      </Fragment>
+    ) : null
+  }
+</div>

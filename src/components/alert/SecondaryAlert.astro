@@ -1,0 +1,17 @@
+---
+import type { VariantColorType } from "@common/types";
+import Alert from "./Alert.astro";
+import type { AlertProps } from "./props";
+
+type Props = AlertProps;
+const { variant = "solid", title } = Astro.props;
+const variantColorMap = new Map<VariantColorType, string>([
+  ["solid", "border-transparent bg-secondary text-white"],
+  ["outlined", "border-transparent text-secondary bg-slate-100"],
+  ["inversed", "border-secondary text-secondary"],
+]);
+---
+
+<Alert class={variantColorMap.get(variant)} {title}>
+  <slot />
+</Alert>

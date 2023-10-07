@@ -1,0 +1,11 @@
+---
+import type { CardImageProps } from "@components/card/props";
+import { twMerge } from "tailwind-merge";
+
+type Props = CardImageProps;
+const { class: className, ...restProps } = Astro.props;
+---
+
+<div id="card-image" class={twMerge("relative", className)}>
+  <img {...restProps} class="w-full h-full object-cover" />
+</div>

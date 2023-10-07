@@ -1,0 +1,78 @@
+---
+import ChevronDownIcon from "@components/icon/ChevronDownIcon.astro";
+import ChevronUpIcon from "@components/icon/ChevronUpIcon.astro";
+import SearchInputFilter from "@components/table/filters/SearchInputFilter.astro";
+import SelectFilter from "@components/table/filters/SelectFilter.astro";
+import type { TableHeadProps } from "@components/table/props";
+import { twMerge } from "tailwind-merge";
+
+type Props = TableHeadProps;
+const { class: className, columns, ...restProps } = Astro.props;
+---
+
+<thead>
+  <tr x-ref="thead" class={twMerge("text-neutral-500 border-b", className)}>
+    <template x-for="column in columns">
+      <th
+        x-on:click={`column.sort && setSortKey(column.key)`}
+        class="px-3 py-1 text-xs font-medium"
+      >
+        <div class="flex items-center justify-between gap-x-2">
+          <span x-text="column.label" class="uppercase"></span>
+          <template x-if="column.sort">
+            <div class="flex flex-col">
+              <ChevronUpIcon
+                size={5}
+                fill="currentColor"
+                :class="order === 'DESC' && column.key === currentSortKey ? 'text-red-600' : 'text-slate-600'"
+                class="translate-y-2"
+              />
+              <ChevronDownIcon
+                size={5}
+                fill="currentColor"
+                :class="order === 'ASC' && column.key === currentSortKey ? 'text-red-600' : 'text-slate-600'"
+                class="mb-2"
+              />
+            </div>
+          </template>
+        </div>
+      </th>
+    </template>
+  </tr>
+  {
+    columns.some((column) => column.filter) ? (
+      <tr class:list={["border-b", className]}>
+        {columns.map((column) => {
+          switch (column.filter?.type) {
+            case "search":
+              return (
+                <td class="p-1">
+                  <SearchInputFilter
+                    placeholder={column.filter.placeholder}
+                    operator={column.filter.operator}
+                    key={column.key}
+                    class="w-full"
+                  />
+                </td>
+              );
+
+            case "select":
+              return (
+                <td class="p-1">
+                  <SelectFilter
+                    placeholder={column.filter.placeholder}
+                    items={column.filter.operators}
+                    key={column.key}
+                    class="w-full"
+                  />
+                </td>
+              );
+
+            default:
+              return <td class="p-1" />;
+          }
+        })}
+      </tr>
+    ) : null
+  }
+</thead>

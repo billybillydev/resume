@@ -1,0 +1,59 @@
+---
+import { twMerge } from "tailwind-merge";
+import StarIcon from "@components/icon/StarIcon.astro";
+import LinearGradientDefs from "@components/ratings/defs/LinearGradientDefs.astro";
+import type { RatingsProps } from "@components/ratings/props";
+
+type Props = RatingsProps;
+const {
+  class: className,
+  value,
+  nb = 1,
+  max = 5,
+  color,
+  size = 6,
+  icon,
+  ...restProps
+} = Astro.props;
+
+const chunk = max / nb;
+const ratings = Array.from({ length: nb }, (_, index) => {
+  const slice = index + 1;
+  return value < (slice - 1) * chunk
+    ? 0
+    : value > slice * chunk
+    ? chunk
+    : value - (slice - 1) * chunk;
+});
+const IconComponent = icon ?? StarIcon;
+---
+
+<ul
+  class={twMerge("flex items-center justify-center gap-x-2", className)}
+  {...restProps}
+>
+  <slot>
+    {
+      ratings.map((rating) => {
+        const percentageRating = Number(((rating * 100) / chunk).toFixed(2));
+        const applyDefsId = crypto.randomUUID();
+        return (
+          <li>
+            <IconComponent {size} applyDefsId={applyDefsId}>
+              {applyDefsId && (
+                <LinearGradientDefs
+                  percentageValue={percentageRating}
+                  applyDefsId={applyDefsId}
+                  color={{
+                    empty: color?.empty ?? "grey",
+                    fill: color?.fill ?? "orange",
+                  }}
+                />
+              )}
+            </IconComponent>
+          </li>
+        );
+      })
+    }
+  </slot>
+</ul>

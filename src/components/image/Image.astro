@@ -1,0 +1,8 @@
+---
+import type { ImageProps } from "@components/image/props";
+
+type Props = ImageProps;
+const { ...restProps } = Astro.props;
+---
+
+<img loading="lazy" {...restProps} />

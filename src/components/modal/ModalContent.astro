@@ -1,0 +1,14 @@
+---
+import FullScreenModalContent from "@components/modal/full-screen/FullScreenModalContent.astro";
+import type { ModalContentProps } from "@components/modal/props";
+import SimpleModalContent from "@components/modal/simple/SimpleModalContent.astro";
+
+type Props = ModalContentProps;
+const { selector = "body", type = "simple", ...restProps } = Astro.props;
+const Component =
+  type === "full-screen" ? FullScreenModalContent : SimpleModalContent;
+---
+
+<Component {selector} {...restProps}>
+  <slot />
+</Component>

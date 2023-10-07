@@ -1,0 +1,25 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { TabsProps } from "@components/tabs/props";
+import type { DirectionType } from "@common/types";
+
+type Props = TabsProps;
+
+const { class: className, direction = "vertical" } = Astro.props;
+
+const directionClassMap = new Map<DirectionType, string>([
+  ["vertical", "flex-col"],
+  ["horizontal", "flex-row items-start"],
+]);
+---
+
+<div
+  x-data={`tabs("${direction}")`}
+  class={twMerge(
+    "relative w-full h-full flex",
+    className,
+    directionClassMap.get(direction)
+  )}
+>
+  <slot />
+</div>

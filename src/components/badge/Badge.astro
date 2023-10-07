@@ -1,0 +1,38 @@
+---
+import { twMerge } from "tailwind-merge";
+import type { VariantColorType } from "@common/types";
+import type { BadgeProps } from "./props";
+import type { BadgeType } from "./types";
+
+type Props = BadgeProps;
+
+const {
+  text = "",
+  variant = "solid",
+  type = "pill",
+  class: className,
+  ...restProps
+} = Astro.props;
+
+const variantMap = new Map<VariantColorType, string>([
+  ["solid", "bg-slate-500 text-white"],
+  ["outlined", "bg-slate-300 text-slate-700"],
+  ["inversed", "border border-slate-700 text-slate-700"],
+]);
+
+const badgeTypeMap = new Map<BadgeType, string>([
+  ["pill", "rounded-full"],
+  ["square", "rounded-none"],
+]);
+---
+
+<div
+  class={twMerge(
+    "px-4 py-1 ",
+    badgeTypeMap.get(type),
+    className ?? variantMap.get(variant)
+  )}
+  {...restProps}
+>
+  {text || <slot />}
+</div>

@@ -1,0 +1,41 @@
+---
+import HeadCommon from "@views/head/HeadCommon.astro";
+import HeadSEO from "@views/head/HeadSEO.astro";
+import * as CONFIG from "@config/seo";
+import "@styles/index.css";
+
+type Props = {
+  content?: any;
+  title?: string;
+};
+const { content = {}, title = "" } = Astro.props;
+const headTitle =
+  title || content.title
+    ? `${content.title} 🚀 ${CONFIG.SITE.title}`
+    : CONFIG.SITE.title;
+---
+
+<!DOCTYPE html>
+<html dir={content.dir ?? "ltr"} lang={content.lang ?? "en-us"} class="initial">
+  <head>
+    <HeadCommon />
+    <HeadSEO {content} url={Astro.url.pathname} />
+    <title>
+      {headTitle}
+    </title>
+    <!-- <link rel="stylesheet" href="/style.css" /> -->
+    <script src="/src/scripts/app.ts" type="module"></script>
+  </head>
+
+  <body
+    x-data="{ currentUrl: new URL(window.location) }"
+    class="bg-slate-100 h-screen flex flex-col overflow-y-hidden relative"
+    x-effect={`
+      navigation.addEventListener('navigate', ({ destination }) => {
+        currentUrl = new URL(destination.url);
+      });
+    `}
+  >
+    <slot />
+  </body>
+</html>
