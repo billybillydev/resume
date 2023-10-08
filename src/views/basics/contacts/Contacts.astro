@@ -1,0 +1,25 @@
+---
+import AtIcon from "@components/icon/AtIcon.astro";
+import GlobeAltIcon from "@components/icon/GlobeAltIcon.astro";
+import MapPinIcon from "@components/icon/MapPinIcon.astro";
+import PhoneIcon from "@components/icon/PhoneIcon.astro";
+---
+
+<div class="flex items-center gap-x-2">
+  <AtIcon stroke-width={2} />
+  <span x-text="basics.email"></span>
+</div>
+<div class="flex items-center gap-x-2">
+  <PhoneIcon stroke-width={2} />
+  <span x-text="basics.phone"></span>
+</div>
+<div class="flex items-center gap-x-2">
+  <MapPinIcon stroke-width={2} />
+  <span
+    x-text="`${basics.location.city}, ${basics.location.postalCode}, ${basics.location.countryCode}`"
+  ></span>
+</div>
+<div class="flex items-center gap-x-2">
+  <GlobeAltIcon stroke-width={2} />
+  <span x-text="basics.url"></span>
+</div>

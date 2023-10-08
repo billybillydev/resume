@@ -1,16 +1,28 @@
 ---
-
+import RootLayout from "@layouts/RootLayout.astro";
+import Basics from "@views/basics/Basics.astro";
+import Educations from "@views/educations/Educations.astro";
+import Interests from "@views/interests/Interests.astro";
+import Languages from "@views/languages/Languages.astro";
+import Skills from "@views/skills/Skills.astro";
+import Works from "@views/works/Works.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<RootLayout title="My Resume">
+	<div class="grid grid-cols-5 h-full border">
+		<div class="flex flex-col col-span-2 bg-slate-900">
+			<Basics />
+			<Skills />
+			<Languages />
+			<Interests />
+		</div>
+		<div class="col-span-3 grid grid-rows-4">
+			<div class="row-span-3">
+				<Works />
+			</div>
+			<div>
+				<Educations />
+			</div>
+		</div>
+	</div>
+</RootLayout>

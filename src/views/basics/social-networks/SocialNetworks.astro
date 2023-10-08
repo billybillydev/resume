@@ -1,0 +1,16 @@
+<h4>Social networks</h4>
+<ul class="flex flex-col pl-2 text-md">
+  <template x-for="profile in basics.profiles">
+    <li class="flex gap-x-2">
+      <span x-text="`${profile.network} : `"></span>
+      <template x-if="profile.url">
+        <a href="profile.url" class="underline underline-offset-2">
+          <span x-text="profile.username"> </span>
+        </a>
+      </template>
+      <template x-if="!profile.url">
+        <span x-text="profile.username"> </span>
+      </template>
+    </li>
+  </template>
+</ul>

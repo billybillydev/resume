@@ -18,6 +18,7 @@ import { logDirective } from "@scripts/alpine/directive/log";
 import { clipboardMagic } from "@scripts/alpine/magic/clipboard";
 import { formatDateMagic } from "@scripts/alpine/magic/format-date";
 import { nowMagic } from "@scripts/alpine/magic/now";
+import { resumeStore } from "@scripts/alpine/store/resume";
 
 /* Data */
 Object.entries({ ...accordion }).forEach(([key, value]) =>
@@ -46,5 +47,8 @@ Alpine.magic("now", nowMagic);
 Alpine.plugin(collapse);
 Alpine.plugin(focus);
 Alpine.plugin(manage);
+
+/* Stores */
+Alpine.store("resume", resumeStore)
 
 export default Alpine;
