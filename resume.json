@@ -6,7 +6,7 @@
     "image": "",
     "email": "believelody@gmail.com",
     "phone": "(33) 06-63-74-19-76",
-    "summary": "Me ? A whole Me ? I'm a JS lover, passionate of code, most of time searching new challenger, I really like to discover what better for us in the web community.",
+    "summary": "Me ? A whole Me ? I'm a JS lover, passionate of code, most of time searching new challenges, I really like to discover what better for us in the web community.",
     "location": {
       "postalCode": "92360",
       "city": "Meudon-la-Forêt",
@@ -51,9 +51,7 @@
       "startDate": "2012-01-01",
       "endDate": "2013-01-01",
       "summary": "Global movement of free coding clubs for young people.",
-      "highlights": [
-        "Awarded 'Teacher of the Month'"
-      ]
+      "highlights": ["Awarded 'Teacher of the Month'"]
     }
   ],
   "education": [
@@ -65,10 +63,7 @@
       "startDate": "2011-06-01",
       "endDate": "2014-01-01",
       "score": "4.0",
-      "courses": [
-        "DB1101 - Basic SQL",
-        "CS2011 - Java Introduction"
-      ]
+      "courses": ["DB1101 - Basic SQL", "CS2011 - Java Introduction"]
     }
   ],
   "awards": [
@@ -90,37 +85,75 @@
   ],
   "skills": [
     {
-      "name": "Web Development",
-      "level": "Master",
+      "name": "Front-End",
       "keywords": [
-        "HTML",
-        "CSS",
-        "Javascript"
+        "ReactJS",
+        "HTML5",
+        "CSS3",
+        "Typescript",
+        "Svelte",
+        "AlpineJS"
       ]
     },
     {
-      "name": "Compression",
-      "level": "Master",
+      "name": "Back-End",
+      "keywords": ["NodeJS", "Clojure"]
+    },
+    {
+      "name": "Framework",
       "keywords": [
-        "Mpeg",
-        "MP4",
-        "GIF"
+        "NextJS",
+        "ExpressJS",
+        "AstroJS",
+        "SvelteKit",
+        "TailwindCSS",
+        "React Native"
+      ]
+    },
+    {
+      "name": "Librairies",
+      "keywords": ["Redux", "Htmx", "Zustand"]
+    },
+    {
+      "name": "SGBD",
+      "keywords": ["MySQL", "PostgreSQL", "MongoDB", "Firebase"]
+    },
+    {
+      "name": "Test",
+      "keywords": ["Jest"]
+    },
+    {
+      "name": "Methodology",
+      "keywords": ["Agile"]
+    },
+    {
+      "name": "Soft Skills",
+      "keywords": [
+        "Technology watch",
+        "Strong adaptability and attentive",
+        "Dynamic / Rigorous / Proactive",
+        "Code lover: Practices craftsmanship"
       ]
     }
   ],
   "languages": [
     {
-      "language": "English",
+      "language": "French",
       "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
     }
   ],
   "interests": [
     {
-      "name": "Wildlife",
-      "keywords": [
-        "Ferrets",
-        "Unicorns"
-      ]
+      "name": "Reading",
+      "keywords": ["Comics", "Mangas", "Kemty", "Motivational Podcast", "Medium"]
+    },
+    {
+      "name": "Sport",
+      "keywords": ["running", "basket", "fitness"]
     }
   ],
   "references": [
@@ -138,18 +171,11 @@
         "Built by all women team of newbie programmers",
         "Using modern technologies such as GoogleMaps, Chrome Extension and Javascript"
       ],
-      "keywords": [
-        "GoogleMaps",
-        "Chrome Extension",
-        "Javascript"
-      ],
+      "keywords": ["GoogleMaps", "Chrome Extension", "Javascript"],
       "startDate": "2016-08-24",
       "endDate": "2016-08-24",
       "url": "missdirection.example.com",
-      "roles": [
-        "Team lead",
-        "Designer"
-      ],
+      "roles": ["Team lead", "Designer"],
       "entity": "Smoogle",
       "type": "application"
     }
