@@ -1,5 +1,6 @@
 ---
 import Contacts from "@views/basics/contacts/Contacts.astro";
+import Summary from "@views/basics/summary/Summary.astro";
 import Presentation from "@views/basics/presentation/Presentation.astro";
 import SocialNetworks from "@views/basics/social-networks/SocialNetworks.astro";
 ---
@@ -8,15 +9,10 @@ import SocialNetworks from "@views/basics/social-networks/SocialNetworks.astro";
   x-data="{ basics : $store.resume.basics }"
   class="flex flex-col text-white p-2 gap-y-3"
 >
-  <section class="w-full text-center py-4 border rounded flex flex-col">
-    <Presentation />
-  </section>
-  <section class="flex flex-col">
-    <Contacts />
-  </section>
+  <Presentation />
+  <Summary />
+  <Contacts />
   <template x-if="basics.profiles.length">
-    <section>
-      <SocialNetworks />
-    </section>
+    <SocialNetworks />
   </template>
 </div>

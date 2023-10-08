@@ -5,6 +5,7 @@ import MapPinIcon from "@components/icon/MapPinIcon.astro";
 import PhoneIcon from "@components/icon/PhoneIcon.astro";
 ---
 
+<section class="flex flex-col">
 <div class="flex items-center gap-x-2">
   <AtIcon stroke-width={2} />
   <span x-text="basics.email"></span>
@@ -19,7 +20,8 @@ import PhoneIcon from "@components/icon/PhoneIcon.astro";
     x-text="`${basics.location.city}, ${basics.location.postalCode}, ${basics.location.countryCode}`"
   ></span>
 </div>
-<div class="flex items-center gap-x-2">
+<!-- <div class="flex items-center gap-x-2">
   <GlobeAltIcon stroke-width={2} />
   <span x-text="basics.url"></span>
-</div>
+</div> -->
+</section>
