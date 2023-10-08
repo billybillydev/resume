@@ -1,1 +1,18 @@
-Languages
+---
+import PrimaryBadge from "@components/badge/PrimaryBadge.astro";
+---
+
+<div
+  x-data="{ languages: $store.resume.languages }"
+  class="flex flex-col text-white p-2 gap-y-3"
+>
+  <h2 class="text-center underline underline-offset-2">Languages</h2>
+  <ul class="flex flex-col gap-y-4">
+    <template x-for="item in languages">
+      <li class="flex flex-wrap gap-x-2 items-center">
+        <p x-text="item.language"></p>
+        <PrimaryBadge x-text="item.fluency" />
+      </li>
+    </template>
+  </ul>
+</div>

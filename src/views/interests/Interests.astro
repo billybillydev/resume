@@ -1,1 +1,20 @@
-Interests
+---
+import Badge from "@components/badge/Badge.astro";
+---
+
+<div
+  x-data="{ interests: $store.resume.interests }"
+  class="flex flex-col text-white p-2 gap-y-3"
+>
+  <h2 class="text-center underline underline-offset-2">Interests</h2>
+  <ul class="flex flex-col gap-y-4">
+    <template x-for="interest in interests">
+      <li class="flex flex-wrap items-center gap-x-2">
+        <p x-text="interest.name" class="shrink-0"></p>
+        <template x-for="keyword in interest.keywords">
+          <Badge x-text="keyword" class="text-sm bg-sky-600" />
+        </template>
+      </li>
+    </template>
+  </ul>
+</div>

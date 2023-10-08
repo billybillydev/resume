@@ -1,1 +1,19 @@
-Skills
+---
+import InfoBadge from "@components/badge/InfoBadge.astro";
+---
+
+<div x-data="{ skills: $store.resume.skills }"
+  class="flex flex-col text-white p-2 gap-y-3"
+>
+    <h2 class="text-center underline underline-offset-2">Skills</h2>
+    <ul class="flex flex-col gap-y-4">
+        <template x-for="skill in skills">
+            <li class="flex flex-wrap items-center gap-x-2">
+                <p x-text="skill.name" class="shrink-0"></p>
+                <template x-for="keyword in skill.keywords">
+                    <InfoBadge x-text="keyword" class="text-sm" />
+                </template>
+            </li>
+        </template>
+    </ul>
+</div>
