@@ -22,7 +22,7 @@ const indicatorPositionClassMap = new Map<IndicatorPositionType, string>([
   } p-4`}
 >
   <slot>
-    <template x-for="(indicator, index) in $refs.carousel.children">
+    <template x-for="(indicator, index) in items">
       <li>
         <button
           x-on:click="setActiveIndex(Number(index))"

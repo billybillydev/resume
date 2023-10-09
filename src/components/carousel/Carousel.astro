@@ -17,6 +17,7 @@ const {
   direction = "horizontal",
   hideNavigations = false,
   slidesToShow = 1,
+  id,
   ...restProps
 } = Astro.props;
 
@@ -30,17 +31,21 @@ const slideDirectionClassMap = new Map<DirectionType, string>([
 ]);
 const slideDirectionDimensionStyle = direction === "horizontal"
   ? `width: ${tailwindThemeConfig.width[`1/${slidesToShow}`]}; height: 100%;`
-  : `width: 100%; height: ${tailwindThemeConfig.height[`1/${slidesToShow}`]}`
+  : `width: 100%; height: ${tailwindThemeConfig.height[`1/${slidesToShow}`]}`;
+
+console.log(Astro.slots.has('default'))
 ---
 
 <div
   x-data={`carousel({ loop: ${loop}, slidesToShow: ${slidesToShow} })`}
   class={twMerge("relative flex", className)}
+  {id}
   {...restProps}
 >
   <div class="relative flex grow h-full">
     <div
       x-ref="carousel"
+      id={`${id}-slides`}
       class={`${directionClassMap.get(direction)} overflow-hidden`}
     >
         <slot>

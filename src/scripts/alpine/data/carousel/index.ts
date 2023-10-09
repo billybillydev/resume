@@ -25,12 +25,19 @@ export function carousel(carouselInputs: CarouselInputs): CarouselOutputs {
     activeItem: null,
     loop: carouselInputs?.loop ?? false,
     slidesToShow: carouselInputs?.slidesToShow ?? 1,
-    init() {
-      this.activeItem = this.items[this.activeIndex];
-      this.$refs.carousel.style.height = this.activeItem.clientHeight + "px";
-      window.addEventListener("resize", () => {
+    async init() {
+      if (this.items.length) {
+        console.log("in x-init before: ", this.items);
+        this.$refs.carousel.children;
+        console.log("in x-init after: ", this.items);
+        this.activeItem = this.items[this.activeIndex];
+        console.log(this.activeItem.clientHeight);
         this.$refs.carousel.style.height = this.activeItem.clientHeight + "px";
-      });
+        window.addEventListener("resize", () => {
+          this.$refs.carousel.style.height =
+            this.activeItem.clientHeight + "px";
+        });
+      }
       this.$watch("activeIndex", (value) => {
         this.$dispatch("selected-slide", { selectedIndex: value });
         this.activeItem = this.items[value];

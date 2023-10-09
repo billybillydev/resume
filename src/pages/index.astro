@@ -9,18 +9,18 @@ import Works from "@views/works/Works.astro";
 ---
 
 <RootLayout title="My Resume">
-	<div class="grid grid-cols-5 h-full border border-slate-500">
+	<div class="grid grid-cols-5 gap-x-4 h-full">
 		<div class="flex flex-col col-span-2 bg-slate-900 overflow-auto divide-y-2">
 			<Basics />
 			<Skills />
 			<Languages />
 			<Interests />
 		</div>
-		<div class="col-span-3 grid grid-rows-4 mx-4 gap-y-4">
-			<div class="row-span-3 h-full border max-h-screen">
+		<div class="grid grid-rows-4 gap-y-4 col-span-3">
+			<div class="row-span-3 h-full border">
 				<Works />
 			</div>
-			<div class="h-full border max-h-screen">
+			<div class="h-full">
 				<Educations />
 			</div>
 		</div>

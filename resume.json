@@ -6,7 +6,7 @@
     "image": "",
     "email": "believelody@gmail.com",
     "phone": "(33) 06-63-74-19-76",
-    "summary": "Me ? A whole Me ? I'm a JS lover, passionate of code, most of time searching new challenges, I really like to discover what better for us in the web community.",
+    "summary": "I'm a JS lover, passionate of code, most of time searching new challenges, I really like to discover what better for us in the web community.",
     "location": {
       "postalCode": "92360",
       "city": "Meudon-la-Forêt",
@@ -56,14 +56,31 @@
   ],
   "education": [
     {
-      "institution": "University of Oklahoma",
+      "institution": "UFR Rouen",
       "url": "https://www.ou.edu/",
-      "area": "Information Technology",
-      "studyType": "Bachelor",
-      "startDate": "2011-06-01",
-      "endDate": "2014-01-01",
-      "score": "4.0",
-      "courses": ["DB1101 - Basic SQL", "CS2011 - Java Introduction"]
+      "area": "Génie Informatique du Mobile et de l'Embarqué",
+      "studyType": "Master",
+      "startDate": "",
+      "endDate": "2019",
+      "courses": ["PostgreSQL", "Hybrid Mobile Programmation", "Typescript", "Ionic"]
+    },
+    {
+      "institution": "UFR Rouen",
+      "url": "https://www.ou.edu/",
+      "area": "Génie Electrique et Informatique Industrielle",
+      "studyType": "Licence",
+      "startDate": "",
+      "endDate": "2015",
+      "courses": ["C++", "Mobile Programmation", "Automatism", "Web development"]
+    },
+    {
+      "institution": "IUT Rouen",
+      "url": "https://www.ou.edu/",
+      "area": "Génie Electrique et Informatique Industrielle",
+      "studyType": "DUT",
+      "startDate": "",
+      "endDate": "2012",
+      "courses": ["C++", "Automatism", "Web development", "Physics", "Mathematics"]
     }
   ],
   "awards": [

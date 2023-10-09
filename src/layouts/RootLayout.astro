@@ -29,7 +29,7 @@ const headTitle =
 
   <body
     x-data="{ currentUrl: new URL(window.location) }"
-    class="bg-slate-100 h-screen flex flex-col overflow-y-hidden relative"
+    class="bg-slate-100 h-screen flex flex-col relative"
     x-effect={`
       navigation.addEventListener('navigate', ({ destination }) => {
         currentUrl = new URL(destination.url);
