@@ -28,18 +28,200 @@
   },
   "work": [
     {
-      "name": "Pied Piper",
-      "location": "Palo Alto, CA",
-      "description": "Awesome compression company",
-      "position": "CEO/President",
-      "url": "http://piedpiper.example.com",
-      "startDate": "2013-12-01",
-      "endDate": "2014-12-01",
-      "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+      "name": "ENGIE",
+      "location": "La Défense, Courbevoie, FR",
+      "description": "Project: ACE",
+      "position": "Fullstack Developper React / NodeJS",
+      "url": "",
+      "startDate": "2023-10",
+      "endDate": "2023-01",
+      "summary": "ACE is a back-office system for the Ellipse application, a platform for onboarding and tracking Engie clients in decarbonization. As part of a team at ENGIE DIGITAL, the mission was to develop this project from scratch.",
       "highlights": [
-        "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
-        "Successfully won Techcrunch Disrupt",
-        "Optimized an algorithm that holds the current world record for Weisman Scores"
+        "Designing the project architecture based on clean architecture principles.",
+        "Developing interfaces according to the ENGIE group's Design System.",
+        "Continuous development using Test-Driven Development (TDD).",
+        "Applying clean code principles.",
+        "Structuring the project using clean architecture.",
+        "Developing third-party libraries used by the API services.",
+        "Implementing authentication and user connection between ENGIE IMPACT users and the ACE back-office through OKTA.",
+        "Developing API services dedicated to the entire ENGIE DIGITAL group.",
+        "Delivering to the ENGIE IMPACT branch for the start of client onboarding in January 2024"
+      ],
+      "keywords": [
+        "React",
+        "NestJS",
+        "AWS",
+        "TypeScript",
+        "Rest API",
+        "JIRA",
+        "Clean code",
+        "Confluence",
+        "Github",
+        "Github Action",
+        "Agile"
+      ]
+    },
+    {
+      "name": "AAREON",
+      "location": "Meudon-la-Forêt, FR",
+      "description": "Project: Borne Interactive",
+      "position": "Developper React",
+      "url": "",
+      "startDate": "2021-11",
+      "endDate": "2022-12",
+      "summary": "This project was about the development of an interactive touch kiosk that will allow tenants of large social housing providers to connect at agency offices in order to perform various operations.",
+      "highlights": [
+        "Development of interfaces according to the client's (landlord's) Design System.",
+        "Development of login functionality via an NFC reader.",
+        "Development of the following features: uploading an attachment via a QR Code, payment via a POS terminal or contactless, adding an attachment via a scanner, printing documents on an integrated thermal ink printer.",
+        "Enhancement of UI components.",
+        "Development of cross-platform components.",
+        "Participation in the writing of User Stories.",
+        "Participation in refining and prioritizing User Stories based on business value.",
+        "Development of features for presentations at the annual social housing congress.",
+        "Responsive adaptation following the arrival of a new kiosk in the 1024 x 768 format."
+      ],
+      "keywords": [
+        "React",
+        "NextJS",
+        "TypeScript",
+        "Rest API",
+        "JIRA",
+        "Confluence",
+        "Gitlab",
+        "Agile (scrum)"
+      ]
+    },
+    {
+      "name": "ITNOVEM (SNCF)",
+      "location": "Saint-Denis, FR",
+      "description": "",
+      "position": "Fullstack Developper React / NodeJS",
+      "url": "",
+      "startDate": "2021-01",
+      "endDate": "2021-07",
+      "summary": "Within the eIoT project, the team develops and maintains all the web applications and components used to read and process information from sensors across the entire Internet of Things (IoT) network in the Ile de France region for SNCF.",
+      "highlights": [
+        "Study and improvement of the front-end tool RESTool developed in React.",
+        "Development of processing chain applications specific to each project.",
+        "Development and maintenance of API servers using NestJS.",
+        "Establishing connections between API applications, processing chains, and Azure Cloud using Service Bus and Event Hub.",
+        "Discussions and improvements of the user interfaces of processing chain applications.",
+        "Implementation of a common eslint package with team-specific rules.",
+        "Participation in the elaboration of user stories through refinement sessions (2-week sprints).",
+        "Functional testing and bug fixes.",
+        "Sprint planning participation, reviews, and retrospectives."
+      ],
+      "keywords": [
+        "React",
+        "NodeJs",
+        "NestJS",
+        "TypeScript",
+        "Rest API",
+        "Git",
+        "RobotFramework",
+        "PostgreSQL",
+        "Agile",
+        "Azure IoT Hub"
+      ]
+    },
+    {
+      "name": "ColiveMe (BNP Paribas Real Estate)",
+      "location": "Paris, FR",
+      "description": "ColivMe Website",
+      "position": "Developper React",
+      "url": "",
+      "startDate": "2020-06",
+      "endDate": "2020-12",
+      "summary": "As member of the Coliveme project, a young startup at Bivwack, the team is developing a colocation marketplace in France with an innovative concept: coliving.",
+      "highlights": [
+        "Study and development of the web interface in ReactJS.",
+        "Implementing the provided mockups by the UI/UX designer.",
+        "Discussing and improving interfaces based on customer feedback.",
+        "Utilizing tracking tools from Google and Facebook.",
+        "Refactoring React code to use Hooks.",
+        "Connecting to the backend in JAVA.",
+        "Participating in the elaboration and delivery of user stories (minimum 2-week sprints).",
+        "Conducting functional tests and addressing bugs.",
+        "Participation in sprint planning, review, and retrospective meetings."
+      ],
+      "keywords": [
+        "React",
+        "Rest API",
+        "Git",
+        "IntelliJ",
+        "Java",
+        "Spring",
+        "Maven",
+        "PostgreSQL",
+        "Agile"
+      ]
+    },
+    {
+      "name": "SOCIETE GENERALE BSC",
+      "location": "Val de Fontenay, FR",
+      "description": "",
+      "position": "Fullstack Developper React / NestJS",
+      "url": "",
+      "startDate": "2019-09",
+      "endDate": "2020-06",
+      "summary": "Within the MYC project, the team has developed a web application that consolidates all the other applications of Société Générale. It also provides information related to responsible behaviors within the company.",
+      "highlights": [
+        "Study and development of the web interface using ReactJS (Typescript).",
+        "Implementing the mockups provided by the UI/UX designer.",
+        "Connecting to a JAVA server via a NodeJS gateway.",
+        "Adapting data according to the specific client needs.",
+        "Participating in the elaboration and delivery of user stories (minimum 2-week sprints).",
+        "Conducting functional tests.",
+        "Participation in sprint planning, review, and retrospective meetings."
+      ],
+      "keywords": [
+        "ReactJS",
+        "NodeJS",
+        "Express",
+        "Typescript",
+        "Git",
+        "IntelliJ",
+        "Java",
+        "Hibernate",
+        "Spring",
+        "Maven",
+        "MySQL",
+        "Oracle",
+        "Agile"
+      ]
+    },
+    {
+      "name": "BNP Paribas ITG",
+      "location": "Montreuil, FR",
+      "description": "ADRET Web",
+      "position": "Developper Angular (intership)",
+      "url": "",
+      "startDate": "2019-03",
+      "endDate": "2019-09",
+      "summary": "Within the ITG department, the team was responsible for the design and development of a web platform for a data anonymization system.",
+      "highlights": [
+        "Study and development of a web interface.",
+        "Adapting data according to the specific client's needs.",
+        "Participating in the elaboration and delivery of user stories (minimum 2-week sprints).",
+        "Conducting functional tests.",
+        "Participation in internal progress meetings.",
+        "Client support.",
+        "Initial implementation of the application at the client's site."
+      ],
+      "keywords": [
+        "Angular 6",
+        "Java/EE",
+        "Jenkins",
+        "Git",
+        "IntelliJ",
+        "Tomcat",
+        "Hibernate",
+        "Spring",
+        "Maven",
+        "MySQL",
+        "Oracle",
+        "Agile"
       ]
     }
   ],
@@ -62,7 +244,12 @@
       "studyType": "Master",
       "startDate": "",
       "endDate": "2019",
-      "courses": ["PostgreSQL", "Hybrid Mobile Programmation", "Typescript", "Ionic"]
+      "courses": [
+        "PostgreSQL",
+        "Hybrid Mobile Programming",
+        "Typescript",
+        "Ionic"
+      ]
     },
     {
       "institution": "UFR Rouen",
@@ -71,7 +258,7 @@
       "studyType": "Licence",
       "startDate": "",
       "endDate": "2015",
-      "courses": ["C++", "Mobile Programmation", "Automatism", "Web development"]
+      "courses": ["C++", "Mobile Programming", "Automatism", "Web development"]
     },
     {
       "institution": "IUT Rouen",
@@ -80,7 +267,7 @@
       "studyType": "DUT",
       "startDate": "",
       "endDate": "2012",
-      "courses": ["C++", "Automatism", "Web development", "Physics", "Mathematics"]
+      "courses": ["C", "Algorithm", "Web development", "Physics", "Mathematics"]
     }
   ],
   "awards": [
@@ -123,13 +310,12 @@
         "ExpressJS",
         "AstroJS",
         "SvelteKit",
-        "TailwindCSS",
         "React Native"
       ]
     },
     {
       "name": "Librairies",
-      "keywords": ["Redux", "Htmx", "Zustand"]
+      "keywords": ["Redux", "Htmx", "Zustand", "TailwindCSS"]
     },
     {
       "name": "SGBD",
@@ -166,7 +352,13 @@
   "interests": [
     {
       "name": "Reading",
-      "keywords": ["Comics", "Mangas", "Kemty", "Motivational Podcast", "Medium"]
+      "keywords": [
+        "Comics",
+        "Mangas",
+        "Kemty",
+        "Motivational Podcast",
+        "Medium"
+      ]
     },
     {
       "name": "Sport",

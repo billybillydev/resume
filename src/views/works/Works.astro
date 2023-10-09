@@ -1,5 +1,65 @@
 ---
-
+import GroupAccordionContent from "@components/accordion/group/GroupAccordionContent.astro";
+import GroupAccordionItem from "@components/accordion/group/GroupAccordionItem.astro";
+import GroupAccordionList from "@components/accordion/group/GroupAccordionList.astro";
+import GroupAccordionTrigger from "@components/accordion/group/GroupAccordionTrigger.astro";
+import InfoBadge from "@components/badge/InfoBadge.astro";
+import Card from "@components/card/Card.astro";
 ---
 
-<div x-data="{ work: $store.resume.work }" class="">Work</div>
+<div
+  x-data="{ work: $store.resume.work }"
+  class="border rounded h-full flex flex-col overflow-hidden border-slate-900"
+>
+  <h2 class="text-center bg-slate-900 p-2 text-white">Work</h2>
+  <ul class="h-full overflow-auto">
+    <GroupAccordionList class="gap-y-4">
+      <template x-for="item in work">
+        <li class="border shadow-md rounded">
+          <GroupAccordionItem class="p-2">
+            <GroupAccordionTrigger class="flex">
+              <div class="w-full flex flex-col">
+                <h3 class="flex gap-x-2">
+                  <span x-text="item.position"></span>
+                  <span>at</span>
+                  <span x-text="item.name"></span>
+                </h3>
+                <h4 class="flex items-center justify-between">
+                  <span class="italic text-neutral-500" x-text="`From ${item.startDate} to ${item.endDate}`"
+                  ></span>
+                  <span x-text="item.location"></span>
+                </h4>
+              </div>
+            </GroupAccordionTrigger>
+            <GroupAccordionContent>
+              <div class="flex flex-col gap-y-4 border-t py-3">
+                <template x-if="item.description">
+                <h4 x-text="item.description"></h4>
+              </template>
+              <p x-text="item.summary"></p>
+              <div>
+                <p class="font-semibold">What we achieve:</p>
+                <ul class="pl-4">
+                  <template x-for="highlight in item.highlights">
+                    <li x-text="`- ${highlight}`"></li>
+                  </template>
+                </ul>
+              </div>
+              <div>
+                <p>Technical Stack:</p>
+                <ul class="flex gap-2 flex-wrap">
+                  <template x-for="keyword in item.keywords">
+                    <li class="text-sm">
+                      <InfoBadge x-text="keyword" />
+                    </li>
+                  </template>
+                </ul>
+              </div>
+              </div>
+            </GroupAccordionContent>
+          </GroupAccordionItem>
+        </li>
+      </template>
+    </GroupAccordionList>
+  </ul>
+</div>

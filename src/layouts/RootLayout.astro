@@ -9,10 +9,7 @@ type Props = {
   title?: string;
 };
 const { content = {}, title = "" } = Astro.props;
-const headTitle =
-  title || content.title
-    ? `${content.title} 🚀 ${CONFIG.SITE.title}`
-    : CONFIG.SITE.title;
+const headTitle = title || CONFIG.SITE.title;
 ---
 
 <!DOCTYPE html>

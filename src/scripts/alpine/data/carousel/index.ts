@@ -27,11 +27,8 @@ export function carousel(carouselInputs: CarouselInputs): CarouselOutputs {
     slidesToShow: carouselInputs?.slidesToShow ?? 1,
     async init() {
       if (this.items.length) {
-        console.log("in x-init before: ", this.items);
         this.$refs.carousel.children;
-        console.log("in x-init after: ", this.items);
         this.activeItem = this.items[this.activeIndex];
-        console.log(this.activeItem.clientHeight);
         this.$refs.carousel.style.height = this.activeItem.clientHeight + "px";
         window.addEventListener("resize", () => {
           this.$refs.carousel.style.height =

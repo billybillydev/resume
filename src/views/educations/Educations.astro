@@ -32,6 +32,7 @@ import Carousel from "@components/carousel/Carousel.astro";
         <p class="flex items-center gap-x-2">
           <span>Institution:</span>
           <span x-text="slide.institution"></span>
+          <span x-text="`(${slide.endDate})`"></span>
         </p>
         <div class="text-sm flex gap-x-2">
           <p>Courses:</p>

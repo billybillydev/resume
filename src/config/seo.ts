@@ -1,9 +1,9 @@
 export const SITE = {
-  title: "Astropine Design System",
-  description: "Astro theme to build your design system fast.",
+  title: "My Interacive Resume",
+  description: "This is an interactive website resume made with Astro & Alpine JS.",
   defaultLanguage: "en_US",
-  twitter: "",
-  github: "billydev",
+  twitter: "billybillydev",
+  github: "billybillydev",
   linkedin: "",
 };
 
