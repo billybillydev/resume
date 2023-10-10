@@ -4,37 +4,36 @@ import Carousel from "@components/carousel/Carousel.astro";
 
 <div
   x-data="{ education: $store.resume.education }"
-  class="h-full border rounded overflow-hidden border-slate-900"
+  class="border h-full overflow-hidden rounded border-slate-900"
 >
   <h2 class="text-center bg-slate-900 p-2 text-white">Educations</h2>
   <Carousel
     id="education"
-    class="h-full"
+    class="w-full flex flex-col h-4/5"
     x-effect={`
         await $nextTick();
         items = [...$refs.carousel.children].slice(1);
         activeItem = items[activeIndex];
-        $refs.carousel.style.height = activeItem.scrollHeight + "px";
+        $refs.carousel.style.height = "100%";
         window.addEventListener("resize", () => {
-          $refs.carousel.style.height =
-            activeItem.scrollHeight + "px";
+          $refs.carousel.style.height = "100%";
         });
     `}
   >
     <template x-for="slide in education">
       <div
-        class="min-w-full h-full flex flex-col gap-y-2 items-center px-2 pt-2 pb-8"
+        class="grid grid-cols-1 gap-y-2 min-w-full px-2"
       >
-        <h3 class="flex gap-x-2">
+        <h3 class="justify-center flex gap-x-2 text-sm lg:text-base">
             <span x-text="`(${slide.studyType})`"></span>
             <span x-text="slide.area"></span>
         </h3>
-        <p class="flex items-center gap-x-2">
+        <p class="justify-center flex items-center gap-x-2 text-sm lg:text-base">
           <span>Institution:</span>
           <span x-text="slide.institution"></span>
           <span x-text="`(${slide.endDate})`"></span>
         </p>
-        <div class="text-sm flex gap-x-2">
+        <div class="justify-center text-xs lg:text-sm flex gap-x-2">
           <p>Courses:</p>
           <ul>
             <template x-for="course in slide.courses">

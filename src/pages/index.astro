@@ -1,28 +1,10 @@
 ---
 import RootLayout from "@layouts/RootLayout.astro";
-import Basics from "@views/basics/Basics.astro";
-import Educations from "@views/educations/Educations.astro";
-import Interests from "@views/interests/Interests.astro";
-import Languages from "@views/languages/Languages.astro";
-import Skills from "@views/skills/Skills.astro";
-import Works from "@views/works/Works.astro";
+import DesktopView from "@views/responsive/DesktopView.astro";
+import MobileView from "@views/responsive/MobileView.astro";
 ---
 
 <RootLayout title="My Resume">
-	<div class="grid grid-cols-5 gap-x-4 h-full">
-		<div class="flex flex-col col-span-2 bg-slate-900 overflow-auto divide-y-2">
-			<Basics />
-			<Skills />
-			<Languages />
-			<Interests />
-		</div>
-		<div class="grid grid-rows-4 gap-y-4 col-span-3 overflow-hidden">
-			<div class="row-span-3 border">
-				<Works />
-			</div>
-			<div class="">
-				<Educations />
-			</div>
-		</div>
-	</div>
+	<DesktopView />
+	<MobileView />
 </RootLayout>

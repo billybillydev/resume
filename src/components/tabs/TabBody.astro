@@ -7,6 +7,6 @@ type Props = TabBodyProps;
 const { class: className } = Astro.props;
 ---
 
-<div class={twMerge("relative w-full content", className)}>
+<div class={twMerge("relative w-full", className)}>
   <slot />
 </div>

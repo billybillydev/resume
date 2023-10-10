@@ -1,0 +1,36 @@
+---
+import Tabs from "@components/tabs/Tabs.astro";
+import TabHeader from "@components/tabs/TabHeader.astro";
+import TabHeaderItem from "@components/tabs/TabHeaderItem.astro";
+import TabBody from "@components/tabs/TabBody.astro";
+import TabBodyItem from "@components/tabs/TabBodyItem.astro";
+import Basics from "@views/basics/Basics.astro";
+import Educations from "@views/educations/Educations.astro";
+import Interests from "@views/interests/Interests.astro";
+import Languages from "@views/languages/Languages.astro";
+import Skills from "@views/skills/Skills.astro";
+import Works from "@views/works/Works.astro";
+---
+
+<Tabs class="lg:hidden">
+  <TabHeader>
+      <TabHeaderItem title="Experience / Education" />
+    <TabHeaderItem title="Contact & Skills" />
+  </TabHeader>
+  <TabBody class="h-full">
+    <TabBodyItem class="flex flex-col bg-slate-900 h-full overflow-auto divide-y-2">
+      <Basics />
+      <Skills />
+      <Languages />
+      <Interests />
+    </TabBodyItem>
+    <TabBodyItem class="flex flex-col gap-y-4 overflow-hidden h-full">
+      <div class="h-3/4">
+        <Works />
+      </div>
+      <div class="h-1/4">
+        <Educations />
+      </div>
+    </TabBodyItem>
+  </TabBody>
+</Tabs>

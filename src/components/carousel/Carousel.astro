@@ -32,8 +32,6 @@ const slideDirectionClassMap = new Map<DirectionType, string>([
 const slideDirectionDimensionStyle = direction === "horizontal"
   ? `width: ${tailwindThemeConfig.width[`1/${slidesToShow}`]}; height: 100%;`
   : `width: 100%; height: ${tailwindThemeConfig.height[`1/${slidesToShow}`]}`;
-
-console.log(Astro.slots.has('default'))
 ---
 
 <div
@@ -42,8 +40,8 @@ console.log(Astro.slots.has('default'))
   {id}
   {...restProps}
 >
-  <div class="relative flex grow h-full">
-    <div
+  <div class="relative flex items-stretch h-full">
+    <ul
       x-ref="carousel"
       id={`${id}-slides`}
       class={`${directionClassMap.get(direction)} overflow-hidden`}
@@ -53,7 +51,7 @@ console.log(Astro.slots.has('default'))
             <Image class:list={[slideDirectionClassMap.get(direction)]} style={slideDirectionDimensionStyle} src={slide.src} alt={slide.alt} />
           ))}
         </slot>
-    </div>
+    </ul>
     {
       !hideNavigations ? (
         <Fragment>

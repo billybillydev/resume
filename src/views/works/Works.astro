@@ -4,29 +4,29 @@ import GroupAccordionItem from "@components/accordion/group/GroupAccordionItem.a
 import GroupAccordionList from "@components/accordion/group/GroupAccordionList.astro";
 import GroupAccordionTrigger from "@components/accordion/group/GroupAccordionTrigger.astro";
 import InfoBadge from "@components/badge/InfoBadge.astro";
-import Card from "@components/card/Card.astro";
 ---
 
 <div
   x-data="{ work: $store.resume.work }"
-  class="border rounded h-full flex flex-col overflow-hidden border-slate-900"
+  class="border rounded flex flex-col h-full text-sm overflow-hidden border-slate-900 bg-slate-100"
 >
   <h2 class="text-center bg-slate-900 p-2 text-white">Work</h2>
   <ul class="h-full overflow-auto">
     <GroupAccordionList class="gap-y-4">
       <template x-for="item in work">
-        <li class="border shadow-md rounded">
+        <li class="border shadow-md rounded bg-white">
           <GroupAccordionItem class="p-2">
             <GroupAccordionTrigger class="flex">
               <div class="w-full flex flex-col">
-                <h3 class="flex gap-x-2">
+                <h3 class="flex flex-col lg:flex-row items-center gap-2 text-sm lg:text-base">
                   <span x-text="item.position"></span>
-                  <span>at</span>
-                  <span x-text="item.name"></span>
+                  <div class="flex gap-x-2">
+                    <span>at</span>
+                    <span x-text="item.name"></span>
+                  </div>
                 </h3>
-                <h4 class="flex items-center justify-between">
-                  <span class="italic text-neutral-500" x-text="`From ${item.startDate} to ${item.endDate}`"
-                  ></span>
+                <h4 class="flex items-center justify-between text-xs lg:text-sm">
+                  <span class="italic text-neutral-500" x-text="`From ${item.startDate} to ${item.endDate}`"></span>
                   <span x-text="item.location"></span>
                 </h4>
               </div>
