@@ -11,9 +11,6 @@ dependencies:
   '@alpinejs/focus':
     specifier: ^3.13.1
     version: 3.13.1
-  '@astrojs/alpinejs':
-    specifier: ^0.3.1
-    version: 0.3.1(@types/alpinejs@3.13.2)(alpinejs@3.13.1)
   '@astrojs/mdx':
     specifier: ^0.19.7
     version: 0.19.7(astro@3.2.3)
@@ -74,16 +71,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
-
-  /@astrojs/alpinejs@0.3.1(@types/alpinejs@3.13.2)(alpinejs@3.13.1):
-    resolution: {integrity: sha512-GKaptRkdJvcqoTOCeAbeiemnpsayJkUmShSjR2qlkvpCIv7B5HzqqfkblLnOwgMGKOggpwZJAZfSAmALqWgNcw==}
-    peerDependencies:
-      '@types/alpinejs': ^3.0.0
-      alpinejs: ^3.0.0
-    dependencies:
-      '@types/alpinejs': 3.13.2
-      alpinejs: 3.13.1
-    dev: false
 
   /@astrojs/compiler@2.2.0:
     resolution: {integrity: sha512-JvmckEJgg8uXUw8Rs6VZDvN7LcweCHOdcxsCXpC+4KMDC9FaB5t9EH/NooSE+hu/rnACEhsXA3FKmf9wnhb7hA==}
