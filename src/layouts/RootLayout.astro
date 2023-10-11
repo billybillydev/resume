@@ -21,7 +21,10 @@ const headTitle = title || CONFIG.SITE.title;
       {headTitle}
     </title>
     <!-- <link rel="stylesheet" href="/style.css" /> -->
-    <script src="/src/scripts/app.ts" type="module"></script>
+    <!-- Have to import this way, seems like doing <script src="path/to/app.ts"></script> doesn't work with build -->
+    <script>
+      import "@scripts/app";
+    </script>
   </head>
 
   <body

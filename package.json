@@ -7,7 +7,7 @@
     "start:tailwind": "npx tailwindcss -i ./src/styles/index.css -o ./public/style.css --watch",
     "start": "concurrently \"pnpm start:dev\" \"pnpm start:tailwind\"",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview --port 3001"
   },
   "dependencies": {
     "@alpinejs/collapse": "^3.13.1",
@@ -15,6 +15,7 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/tailwind": "^4.0.0",
     "@docsearch/css": "^3.5.2",
+    "@types/alpinejs": "^3.0.0",
     "alpinejs": "^3.13.1",
     "alpinejs-manage": "^1.0.3",
     "resumed": "^3.0.1",
