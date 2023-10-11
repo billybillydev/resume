@@ -5,7 +5,7 @@
       <li class="flex gap-x-2">
         <span x-text="`${profile.network} : `"></span>
         <template x-if="profile.url">
-          <a href="profile.url" class="underline underline-offset-2">
+          <a :href="profile.url" class="underline underline-offset-2">
             <span x-text="profile.username"> </span>
           </a>
         </template>
