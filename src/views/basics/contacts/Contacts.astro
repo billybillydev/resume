@@ -8,11 +8,11 @@ import PhoneIcon from "@components/icon/PhoneIcon.astro";
 <section class="flex flex-col">
 <div class="flex items-center gap-x-2">
   <AtIcon stroke-width={2} />
-  <span x-text="basics.email"></span>
+  <a :href="`mailto:${basics.phone}`" x-text="basics.email"></a>
 </div>
 <div class="flex items-center gap-x-2">
   <PhoneIcon stroke-width={2} />
-  <span x-text="basics.phone"></span>
+  <a :href="`tel:${basics.phone}`" x-text="basics.phone"></a>
 </div>
 <div class="flex items-center gap-x-2">
   <MapPinIcon stroke-width={2} />
