@@ -1506,6 +1506,14 @@ code {
   height: 100vh;
 }
 
+.h-\[30\%\] {
+  height: 30%;
+}
+
+.h-\[70\%\] {
+  height: 70%;
+}
+
 .max-h-80 {
   max-height: 20rem;
 }
