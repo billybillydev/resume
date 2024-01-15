@@ -29,14 +29,14 @@ const headTitle = title || CONFIG.SITE.title;
 
   <body
     x-data="{ currentUrl: new URL(window.location) }"
-    class="bg-slate-100 h-screen flex flex-col relative"
+    class="bg-slate-100 relative"
     x-effect={`
       navigation.addEventListener('navigate', ({ destination }) => {
         currentUrl = new URL(destination.url);
       });
     `}
   >
-    <div class="container mx-auto h-screen overflow-hidden max-w-5xl">
+    <div class="container mx-auto h-screen max-w-5xl">
       <slot />
     </div>
   </body>

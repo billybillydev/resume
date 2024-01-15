@@ -12,19 +12,19 @@ import Skills from "@views/skills/Skills.astro";
 import Works from "@views/works/Works.astro";
 ---
 
-<Tabs class="lg:hidden">
+<Tabs class="lg:hidden h-full">
   <TabHeader>
-      <TabHeaderItem title="Experience / Education" />
     <TabHeaderItem title="Contact & Skills" />
+    <TabHeaderItem title="Experience / Education" />
   </TabHeader>
-  <TabBody class="h-full">
-    <TabBodyItem class="flex flex-col bg-slate-900 h-full overflow-auto divide-y-2">
+  <TabBody class="h-full overflow-auto">
+    <TabBodyItem class="bg-slate-900 divide-y-2">
       <Basics />
       <Skills />
       <Languages />
       <Interests />
     </TabBodyItem>
-    <TabBodyItem class="flex flex-col gap-y-4 overflow-hidden h-full">
+    <TabBodyItem class="flex flex-col gap-y-2 h-full">
       <div class="h-3/4">
         <Works />
       </div>
